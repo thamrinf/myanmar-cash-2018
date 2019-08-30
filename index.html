@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>HDX MMR Cash</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/dc.css" />
+        <link rel="stylesheet" type="text/css" href="css/site.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="css/leaflet.css" /> -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.2/leaflet.css" />
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/d3.min.js"></script>
+        <script src="js/d3.tip.min.js"></script>
+        <script src="js/crossfilter.js"></script>
+        <!-- <script src="js/leaflet.js"></script> -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.2/leaflet.js"></script>
+        <script src="js/dc.js"></script>
+       
+        
+        <link rel="stylesheet" type="text/css" href="https://leaflet.github.io/Leaflet.label/leaflet.label.css">
+        <script type="text/javascript" src="https://leaflet.github.io/Leaflet.label/leaflet.label.js"></script>
+
+        <script src="js/dc.leaflet.js"></script>
+
+        
+    </head>
+    <body>
+        <title>Index</title>
+    <style type="text/css">
+        .container{
+            /*background: grey;*/
+        }
+        .whitebox{
+            border: 1px; 
+            min-height: 30px;
+            margin-bottom: 15px
+            /*background: red;*/
+        }
+        .abox{
+            border: 1px solid #dddddd;
+            min-height: 100px;
+            margin-bottom: 15px
+            /*background: red;*/
+        }
+        .legend { list-style: none; font-family: sans-serif; }
+        .legend li { display: block; margin-right: 10px; margin-bottom: 7px;}
+        .legend span { border: 1px solid #fff; float: left; width: 30px; height: 21px; margin: 1px; font-family: sans-serif; }
+        /* your colors */
+        .legend .higher { background-color: #3d75b5; }
+        .legend .seconhigher { background-color: #6794c0; }
+        .legend .lower { background-color: #9bb4ca; }
+        .legend .notapplicable { background-color: #d5d5d5; 
+        }
+        .blockrow{
+            /*margin-bottom: 15px;*/
+        }
+        #hdx-3W-where {
+            min-height: 930px;
+            width: 100%;
+            margin-bottom: 7px;
+            margin-top: 10px;
+        }
+            margin-right: -30px;
+        }
+        .nopadleft{
+            padding-left: 0px !important;
+        }
+        @media(max-width: 800px){
+          .nopadleft{
+                padding-left: 15px !important;
+            }  
+        }
+    </style>
+        <div class="container">
+            <div class="row blockrow">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-10"><h1>Myanmar Cash Transfer Programming activities in 2018</h1></div>
+                        <div class="col-md-2 nopadleft" style="padding-top: 20px">
+                           <p class="pull-right"> <a class="reset btn btn-primary btn-sm" id="reset" href="javascript:dc.filterAll();dc.redrawAll();">Reset filters</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="row blockrow">   
+                <div class="col-md-12 whitebox">
+                    <h5>Cash Transfer Programming (CTP) interventions have increasingly been used by humanitarian organisations in Myanmar since Cyclone Nargis in 2008. In 2018, humanitarian organisations reached more than 612,000 individuals with cash and humanitarian cash transfers totaling more than $13.8 million. Cash Transfer Programming is increasingly part of preparedness efforts. Innovations such as mobile money provide opportunities for further scale up CTP in Myanmar.<h5>
+                </div>
+            </div>    
+            <div class="row blockrow marginrignt30">
+                <div class="col-md-4 nopadleft">
+                    <div class="col-md-12 abox">
+                        <center>
+                            <p class="keyfigures" id="peopleAssisted"></p>
+                            <h4>TOTAL BENEFICIARIES</h4>
+                        </center>
+                    </div>
+                </div>       
+                <div class="col-md-4 nopadleft">
+                    <div class="col-md-12 abox">
+                        <center>
+                            <p class="keyfigures" id="amountTransfered"></p>
+                            <h4>TOTAL VALUE CASH PROGRAMME</h4>
+                        </center>
+                </div>
+            </div>        
+                <div class="col-md-4 nopadleft">
+                    <div class="col-md-12 abox">
+                        <center>
+                            <p class="keyfigures" id="numberOrgs"></p>
+                            <h4>TOTAL PROJECTS</h4>
+                        </center>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div id="header" class="col-md-12"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 blockbar">
+                    <h4>Total beneficiaries</h4>
+                    <div id="hdx-3W-TBBT" class="hdx-3w-chart"></div>
+                </div>
+                <div class="col-md-4 col-sm-6 blockbar">
+                    <h4>Total value cash programme</h4>
+                    <div id="hdx-3W-TVCPBT" class="hdx-3w-chart"></div>
+                </div>
+                <div class="col-md-4 col-sm-6 blockbar">
+                    <h4>Total number of activities</h4>
+                    <div id="hdx-3W-SABT" class="hdx-3w-chart"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div id="header" class="col-md-12"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Modality</h4>
+                            <div style="margin-bottom: 15px"; id="hdx-3W-M" class="hdx-3w-chart"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <h4>Value by sector of activities</h4>
+                            <div style="margin-bottom: 15px"; id="hdx-3W-VBSOA" class="hdx-3w-chart"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <h4>Targeted population</h4>
+                            <div id="hdx-3W-TP" class="hdx-3w-chart"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class='my-legend'></div>
+                            <h3>Legend</h3>
+                            <div class='legend'>
+                              <ul class='legend' style="padding-left: 0;">
+                                <li><span class="higher"></span>&nbsp;&nbsp;> 50,0000</li>
+                                <li><span class="seconhigher"></span>&nbsp;&nbsp; 1,000 - 50,000</li>
+                                <li><span class="lower"></span>&nbsp;&nbsp;< 1,000</li>
+                                <li><span class="notapplicable"></span>&nbsp;&nbsp;Not applicable</li>
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h4>Number of beneficiaries by region/state</h4>
+                    <div id="hdx-3W-where" class="hdx-3w-chart"></div>
+                </div>
+            </div>
+        </div> <!-- end container-->
+        <script src="js/site.js"></script>
+
+    </body>
+</html>

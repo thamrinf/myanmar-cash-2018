@@ -1,0 +1,117 @@
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h4 {
+    color: #222;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+body{
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+a {
+    color: #F2645A;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #F2645A;
+}
+
+#header {
+    border-bottom-color: #dddddd;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-bottom: 5px;
+}
+
+.viz-container {
+    display: none;
+}
+
+.description{
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.reset {
+    /*padding-left: 20px;*/
+}
+
+#hdx-3W-where {
+    min-height: 800px;
+    width: 100%;
+        margin-bottom: 7px;
+    margin-top: 10px;
+}
+
+.keyfigures {
+    color: #03a9f4;
+    font-size: 30px;
+}
+
+.surveySelectionMenu{
+    width: 60%;
+    height: 40px;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.sidebar{
+    text-align: center;
+}
+
+.main-content {
+    border-left: 1px solid #e5e5e5;
+}
+
+.dc-chart g.row text {
+    dominant-baseline: middle;
+    fill: #333;
+    font-size: 12px;
+}
+
+#age svg g g.axis.y {
+    display: none;
+}
+
+#age svg g g.axis.x text {
+    text-anchor: end !important;
+    transform: rotate(-45deg);
+}
+
+.x-axis-label{
+    font-size: 0.9em;
+}
+
+.dc-chart .pie-slice {
+    fill: black;
+    font-size:0.8em;
+}
+
+.hdx-3w-info{
+    background-color: white;
+    font-size: 1.0em;
+}
+
+.surveycharts > div {
+    min-height: 270px;
+}
+
+.d3-tip {
+    padding: 5px;
+    background-color: white;
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    font-size: 14px;
+}
+
